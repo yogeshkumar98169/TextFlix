@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -35,4 +36,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* !Starting adding my css */
+.blank{
+  text-align: center;
+  font-size: 2rem;
+  background-color: rgb(60, 60, 214);
+  color:white;
 }
