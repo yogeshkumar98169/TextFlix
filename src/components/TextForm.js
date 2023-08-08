@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export default function (props) {
-  const [text, setText] = useState("");
   const handleUpClick = () => {
     setText(text.toUpperCase());
   };
@@ -11,6 +10,7 @@ export default function (props) {
   const handleLoClick = () => {
     setText(text.toLowerCase());
   };
+  const [text, setText] = useState("");
   return (
     <>
       <div className="container-sm">
