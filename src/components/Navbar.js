@@ -39,6 +39,9 @@ export default function Navbar(props) {
           </a>
         </div>
       </div>
+      <div class="form-check form-switch d-flex flex-row-reverse mx-5">
+        <input class="form-check-input" type="checkbox" role="switch" id="ModeEnabler" onClick={props.toggleMode} />
+      </div>
     </nav>
   );
 }
