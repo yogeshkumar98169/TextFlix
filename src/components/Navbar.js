@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Alert from "./Alert";
 
 export default function Navbar(props) {
   return (
