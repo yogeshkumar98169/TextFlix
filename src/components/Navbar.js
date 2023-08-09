@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Alert from "./Alert";
 
 export default function Navbar(props) {
   return (
@@ -39,10 +40,10 @@ export default function Navbar(props) {
           </a>
         </div>
       </div>
-      <div class="form-check form-switch d-flex flex-row-reverse mx-5">
+      <div class={`form-check form-switch text-${props.mode === 'dark' ? 'light' : 'dark'} mx-5`}>
         <input class="form-check-input" type="checkbox" role="switch" id="ModeEnabler" onClick={props.toggleMode} />
       </div>
-    </nav>
+    </nav >
   );
 }
 
