@@ -4,7 +4,7 @@ import About from "./components/About";
 import Navbar from "./components/Navbar.js";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 function App() {
   const [mode, setMode] = useState('light');  //!Whether dark mode is enabled or not
   const [alert, setAlert] = useState(null);
@@ -45,7 +45,7 @@ function App() {
               <About />
             </Route>
             <Route path="/">
-              <TextForm showAlert={showAlert} heading="Enter the Text" mode={mode}></TextForm>
+              <TextForm showAlert={showAlert} heading="Enter the Text" mode={mode} />
             </Route>
           </Switch>
 
