@@ -4,21 +4,25 @@ export default function TextForm(props) {
   const [text, setText] = useState("");
   const handleUpClick = () => {
     setText(text.toUpperCase());
-    props.showAlert("Copied")
+    props.showAlert("Text converted to UpperCase")
   };
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
   const handleLoClick = () => {
     setText(text.toLowerCase());
+    props.showAlert("Text converted to LowerCase")
   };
   const clearData = () => {
     setText("");
+    props.showAlert('Clear Text')
   };
   const handleCopy = () => {
     let text = document.getElementById('myBox');
     text.select();
+    document.getSelection().removeAllRanges();
     navigator.clipboard.writeText(text.value);
+    props.showAlert('Copied')
   }
   return (
     <>
@@ -33,25 +37,25 @@ export default function TextForm(props) {
             onChange={handleOnChange}
           ></textarea>
         </div>
-        <button
+        <button disabled={text.length === 0}
           className={`bg-${props.mode === 'light' ? 'primary' : 'secondary'} text-white border-0 rounded mx-2 my-2 p-2`}
           onClick={handleUpClick}
         >
           Convert To UpperCase
         </button>
-        <button
+        <button disabled={text.length === 0}
           className={`bg-${props.mode === 'light' ? 'primary' : 'secondary'} text-white border-0 rounded mx-2 my-2 p-2`}
           onClick={handleLoClick}
         >
           Convert To LowerCase
         </button>
-        <button
+        <button disabled={text.length === 0}
           className={`bg-${props.mode === 'light' ? 'primary' : 'secondary'} text-white border-0 rounded mx-2 my-2 p-2`}
           onClick={clearData}
         >
           Clear
         </button>
-        <button
+        <button disabled={text.length === 0}
           className={`bg-${props.mode === 'light' ? 'primary' : 'secondary'} text-white border-0 rounded mx-2 my-2 p-2`}
           onClick={handleCopy}
         >
@@ -61,11 +65,11 @@ export default function TextForm(props) {
       <div className="container">
         <h1>Your Text Summary</h1>
         <p>
-          {text.split(" ").length} words, {text.length} characters
+          {text.split(" ").filter((element) => { return element.length !== 0 }).length} words, {text.length} characters
         </p>
-        <p>You can read in : {0.008 * text.split(" ").length} minutes</p>
+        <p>You can read in : {0.008 * text.split(" ").filter((element) => { return element.length !== 0 }).length} minutes</p>
         <h3>Preview</h3>
-        <p>{text.length > 0 ? text : "Enter something in the textarea to preview here"}</p>
+        <p>{text.length > 0 ? text : "Enter text......"}</p>
       </div>
     </>
   );

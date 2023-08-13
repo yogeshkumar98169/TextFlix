@@ -15,7 +15,7 @@ function App() {
     })
     setTimeout(() => {
       setAlert(null)
-    }, 2000);
+    }, 3000);
 
   }
   const toggleMode = () => {
@@ -41,10 +41,10 @@ function App() {
         <Alert alert={alert}></Alert>
         <div className="container-sm my-2">
           <Switch>
-            <Route path="/about">
+            <Route exact path="/about">
               <About />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <TextForm showAlert={showAlert} heading="Enter the Text" mode={mode} />
             </Route>
           </Switch>
